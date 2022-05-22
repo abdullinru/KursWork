@@ -7,82 +7,58 @@ public class Main {
         bazaSotrudnikov[3] = new Employee("Александров Александр Александрович", 4, 75000);
         bazaSotrudnikov[4] = new Employee("Максимов Максим Максимович", 5, 35000);
         bazaSotrudnikov[5] = new Employee("Абдуллин Руслан Мансурович", 4, 100000);
-        print (bazaSotrudnikov);
-        printFIO(bazaSotrudnikov);
-        findSotrudMaxZp(bazaSotrudnikov);
-        findSotrudMinZp(bazaSotrudnikov);
-        sredneeSalary(bazaSotrudnikov);
-        sumSalary(bazaSotrudnikov);
+
+        EmployeeBook book = new EmployeeBook(bazaSotrudnikov);
+        book.print();
+        book.printFIO();
+        book.printOtdel(4);
+
+        book.findSotrudMaxZp();
+        book.findSotrudMinZp();
+        book.sumSalary();
+        book.sredneeSalary();
+        book.indexSalary(10);
+        System.out.println();
+
+        book.print();
+        System.out.println();
+        book.sotrudZpLess(60000);
+        book.sotrudZpMore(100000);
+        System.out.println();
+
+        book.sredneeSalaryOtdel(4);
+        book.sumSalaryOtdel(4);
+        book.indexSalaryOtdel(4, 15);
+        book.sotrudMaxZpOtdel(4);
+        book.sotrudMinZpOtdel(4);
+        book.addNewSotrud("Сергеев сергей сергеевич", 4, 100000);
+        book.delSotrud(3);
+        book.printVseOtdely();
+        book.changeSotrud("Абдуллин Руслан Мансурович", 3, 200000);
+        book.printVseOtdely();
+
+//        print (bazaSotrudnikov);
+//        printFIO(bazaSotrudnikov);
+//        findSotrudMaxZp(bazaSotrudnikov);
+//        findSotrudMinZp(bazaSotrudnikov);
+//        sredneeSalary(bazaSotrudnikov);
+//        sumSalary(bazaSotrudnikov);
+//        indexSalary(bazaSotrudnikov,15);
+//        print(bazaSotrudnikov);
+//
+//        sotrudZpLess(bazaSotrudnikov, 70000);
+//        sotrudZpMore(bazaSotrudnikov, 100000);
+//
+//        sotrudMinZpOtdel(bazaSotrudnikov, 4);
+//        sotrudMaxZpOtdel(bazaSotrudnikov, 4);
+//        sumSalaryOtdel(bazaSotrudnikov, 4);
+//        sredneeSalaryOtdel(bazaSotrudnikov, 4);
+//        indexSalaryOtdel(bazaSotrudnikov,4, 5);
+//        printOtdel(bazaSotrudnikov, 4);
     }
 
-    public static void print(Employee[] employee) {
-        for (Employee value : employee) {
-            if (value == null) {
-                continue;
-            }
-            System.out.println(value);
 
-        }
-    }
-    public static void printFIO(Employee[] employee) {
-        for (Employee value : employee) {
-            if (value == null) {
-                continue;
-            }
-            System.out.println(value.getName());
 
-        }
-    }
-    public static void sumSalary(Employee[] employee) {
-        double sum = 0;
-        for (Employee value : employee) {
-            if (value == null) {
-                continue;
-            }
-            sum += value.getSalary();
-        }
-        System.out.println("Сумма затрат на зарплаты сотрудникам = " + sum);
-    }
-
-    public static void findSotrudMinZp(Employee[] employee) {
-        double min = Double.MAX_VALUE;
-        Employee minSalary = employee[0];
-        for (int i = 0; i < employee.length; i++) {
-            if (employee[i] == null) {
-                continue;
-            }
-            if (employee[i].getSalary() < min) {
-                min = employee[i].getSalary();
-                minSalary = employee[i];
-            }
-        }
-        System.out.println("Сотрудник с минимальной зарплатой: " + minSalary.getName());
-
-    }
-    public static void findSotrudMaxZp(Employee[] employee) {
-        double max = 0;
-        Employee maxSalary = employee[0];
-        for (Employee value : employee) {
-            if (value == null) {
-                continue;
-            }
-            if (value.getSalary() > max) {
-                max = value.getSalary();
-                maxSalary = value;
-            }
-        }
-        System.out.println("Сотрудник с максимальной зарплатой: " + maxSalary.getName());
-    }
-    public static void sredneeSalary(Employee[] employee) {
-        double sum = 0;
-        for (Employee value : employee) {
-            if (value == null) {
-                continue;
-            }
-            sum += value.getSalary();
-        }
-        System.out.println("Среднее значение заралат по сотрудникам = " + sum/ employee.length);
-    }
 
 
 }
