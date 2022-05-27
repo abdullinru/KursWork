@@ -24,7 +24,7 @@ public class Employee {
         return salary;
     }
 
-    public int setId() {
+    public int getId() {
         return id;
     }
 
@@ -39,10 +39,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Сотрудник id: " + id +
-                ", ФИО: " + name +
-                ", Отдел: " + otdel +
-                ", Зарплата: " + salary;
+        return String.format("Сотрудник id: %d, ФИО: %s, Отдел: %d, Зарплата: %f;", id, name, otdel, salary );
     }
     static int schetcik = 0;
 }
